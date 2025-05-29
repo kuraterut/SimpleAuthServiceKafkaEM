@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic: confirmation-codes
+
+jwt:
+  secret: 7A25432A462D4A614E645267556B58703273357638792F423F4528482B4D6251
+  expiration: 86400
+
+logging:
+  level:
+    org.springframework.security: DEBUG
