@@ -1,6 +1,9 @@
 package org.kuraterut.service;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.kuraterut.config.JwtTokenProvider;
 import org.kuraterut.exceptions.exceptions.InvalidConfirmationCodeException;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
+@Getter
 public class AuthService {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
@@ -22,6 +26,7 @@ public class AuthService {
 
     @Value("${spring.kafka.topic}")
     private String topic;
+
 
     public void registerUser(String email) {
         String confirmationCode = generateConfirmationCode();
