@@ -1,11 +1,11 @@
 package org.kuraterut.service;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.kuraterut.config.JwtTokenProvider;
 import org.kuraterut.exceptions.exceptions.InvalidConfirmationCodeException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
+@Getter
 public class AuthService {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
@@ -22,6 +23,7 @@ public class AuthService {
 
     @Value("${spring.kafka.topic}")
     private String topic;
+
 
     public void registerUser(String email) {
         String confirmationCode = generateConfirmationCode();

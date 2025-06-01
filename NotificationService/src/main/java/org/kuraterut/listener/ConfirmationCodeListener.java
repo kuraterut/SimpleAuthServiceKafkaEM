@@ -14,4 +14,5 @@ public class ConfirmationCodeListener {
                                        @Header(KafkaHeaders.RECEIVED_KEY) String email) {
         System.out.printf("Sending confirmation code %s to email %s%n", code, email);
     }
+
 }
